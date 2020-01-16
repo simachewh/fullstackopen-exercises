@@ -1,11 +1,12 @@
 import React from 'react'
+import Part from './part'
 
 const Content = ( params ) => {
     return (
         <>
-            <p>{params.part1} {params.exercises1}</p>
-            <p>{params.part2} {params.exercises2}</p>
-            <p>{params.part3} {params.exercises3}</p>
+            <Part part={params.part1} exercises={params.exercises1} />
+            <Part part={params.part2} exercises={params.exercises2} />
+            <Part part={params.part3} exercises={params.exercises3} />
         </>
     )
 }
