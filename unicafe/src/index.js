@@ -2,6 +2,15 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
 const Statistics = ( props ) => {
+    if( props.total == 0 )
+    {
+        return (
+            <div>
+                <h2>Statistics</h2>
+                <p>No feedback given yet.</p>
+            </div>
+        );
+    }
     return (
         <div>
             <h2>Statistics</h2>
@@ -63,7 +72,8 @@ const App = () => {
             <button onClick={increamentBad}>Bad</button>
             <Statistics good={good} 
                 bad={bad} 
-                neutral={neutral} 
+                neutral={neutral}
+                total={total}
                 average={calculateAverage} 
                 positive={calculatePositivePercentage} />
         </div>
