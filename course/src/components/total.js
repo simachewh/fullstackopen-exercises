@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Total = ( params ) => {
+const Total = ( props ) => {
     let total = 0;
-    params.parts.forEach( item => total += item.exercises );
+    props.parts.forEach( item => total += item.exercises );
     return(
         <>
             <p>Number of exercises {total}</p>

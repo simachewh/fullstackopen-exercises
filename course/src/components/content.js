@@ -1,12 +1,12 @@
 import React from 'react'
 import Part from './part'
 
-const Content = ( params ) => {
+const Content = ( props ) => {
     return (
         <>
-            <Part part={params.parts[ 0 ]} />
-            <Part part={params.parts[ 1 ]} />
-            <Part part={params.parts[ 2 ]} />
+            <Part part={props.parts[ 0 ]} />
+            <Part part={props.parts[ 1 ]} />
+            <Part part={props.parts[ 2 ]} />
         </>
     )
 }
