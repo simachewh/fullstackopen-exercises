@@ -11,7 +11,9 @@ const Button = (props) => {
 
 const Statistic = (props) => {
     return (
-<p>{props.text}: {props.value} {props.unit}</p>
+        <tr>
+            <td>{props.text}</td><td>{props.value} {props.unit}</td>
+        </tr>
     );
 }
 
@@ -22,19 +24,26 @@ const Statistics = ( props ) => {
             <div>
                 <h2>Statistics</h2>
                 <p>No feedback given yet.</p>
+                <table>
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
         );
     }
     return (
         <div>
             <h2>Statistics</h2>
-            <p>Good: {props.good}</p>
-            <Statistic text="Good" value={props.good}/>
-            <Statistic text="Neutral" value={props.neutral}/>
-            <Statistic text="Bad" value={props.bad}/>
-            <Statistic text="All" value={props.total}/>
-            <Statistic text="Average" value={props.average()}/>
-            <Statistic text="Positive" value={props.positive()} unit="%" />
+            <table>
+                <tbody>
+                    <Statistic text="Good" value={props.good}/>
+                    <Statistic text="Neutral" value={props.neutral}/>
+                    <Statistic text="Bad" value={props.bad}/>
+                    <Statistic text="All" value={props.total}/>
+                    <Statistic text="Average" value={props.average()}/>
+                    <Statistic text="Positive" value={props.positive()} unit="%" />
+                </tbody>
+            </table>
         </div>
     );
 }
@@ -79,18 +88,26 @@ const App = () => {
         return ( good / total ) * 100;
     }
 
+    let statProps = {
+        good: good,
+        bad: bad,
+        neutral: neutral,
+        total: total,
+        average: calculateAverage,
+        positive: calculatePositivePercentage
+    }
+    let btnStyle = {
+        display: "inline-block"
+    }
     return (
         <div>
             <h1>Give Feedback</h1>
-            <Button clickHandler={increamentGood} label="Good" />
-            <Button clickHandler={increamentNeutral} label="Neutral"/>
-            <Button clickHandler={increamentBad} label="Bad"/>
-            <Statistics good={good} 
-                bad={bad} 
-                neutral={neutral}
-                total={total}
-                average={calculateAverage} 
-                positive={calculatePositivePercentage} />
+            <div style={{display:"inline-flex"}}>
+                <Button clickHandler={increamentGood} label="Good" />
+                <Button clickHandler={increamentNeutral} label="Neutral"/>
+                <Button clickHandler={increamentBad} label="Bad"/>
+            </div>
+            <Statistics {...statProps} />
         </div>
       );
 }
