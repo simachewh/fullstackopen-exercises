@@ -18,7 +18,7 @@ const Statistic = (props) => {
 }
 
 const Statistics = ( props ) => {
-    if( props.total == 0 )
+    if( props.total === 0 )
     {
         return (
             <div>
@@ -74,7 +74,7 @@ const App = () => {
     }
 
     const calculateAverage = () => {
-        if( total == 0 )
+        if( total === 0 )
         {
             return 0;
         }
@@ -82,7 +82,7 @@ const App = () => {
     }
 
     const calculatePositivePercentage = () => {
-        if (total == 0) {
+        if (total === 0) {
             return 0;
         }
         return ( good / total ) * 100;
@@ -96,9 +96,7 @@ const App = () => {
         average: calculateAverage,
         positive: calculatePositivePercentage
     }
-    let btnStyle = {
-        display: "inline-block"
-    }
+    
     return (
         <div>
             <h1>Give Feedback</h1>
