@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Persons from './components/Persons'
 
 const App = () => {
   const [ persons, setPersons ] = useState([
@@ -55,11 +56,7 @@ const App = () => {
       <div>debug: {newName}</div>
       <h2>Numbers</h2>
       <div>
-        <ul>
-          {personsToShow.map( (person) =>
-            <li key={person.name}>{person.name} {person.phone}</li>
-           )}
-        </ul>
+        <Persons persons={personsToShow}></Persons>
       </div>
     </div>
   )
